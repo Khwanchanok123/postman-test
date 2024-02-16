@@ -15,6 +15,10 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.post('/books', (req, res) => {
+  books.push(req.body)
+})
+
 app.get('/books/:id', (req, res) => {
   res.json(books.find(book => book.id === req.params.id))
 })
